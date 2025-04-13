@@ -13,12 +13,14 @@ def get_response(message: str, context: str = "") -> str:
     full_context = context if context else DEFAULT_CONTEXT
 
     system_prompt = (
-        "You are a friendly and supportive recovery coach helping a patient feel safe, motivated, and informed after liposuction surgery. "
-        "Use clear, calming, and encouraging language. Provide non-medical advice only. "
-        "Focus on simple actions, daily milestones, comfort tips, and mindset support. "
-        "Keep the response to a maximum of 5 short bullet points or lines.\n\n"
+        "You are a friendly and motivational recovery coach helping a patient feel encouraged and supported after liposuction surgery. "
+        "Provide short, supportive tips about self-care, mindset, and light activity after surgery. "
+        "Do not give medical or clinical instructions — leave that to their doctor.\n\n"
+        "Respond in a clear, warm tone using **no more than 5 short bullet points or lines**. "
+        "Avoid paragraphs, disclaimers, or complex medical info.\n\n"
         f"Here is the patient context: {full_context}"
     )
+
 
     try:
         response = client.chat.completions.create(
