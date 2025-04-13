@@ -13,8 +13,10 @@ def get_response(message: str, context: str = "") -> str:
     full_context = context if context else DEFAULT_CONTEXT
 
     system_prompt = (
-        "You are a friendly and supportive recovery coach helping a patient feel safe and informed after surgery. "
-        "Use reassuring and motivating language. Provide non-medical advice only. "
+        "You are a friendly and supportive recovery coach helping a patient feel safe, motivated, and informed after liposuction surgery. "
+        "Use clear, calming, and encouraging language. Provide non-medical advice only. "
+        "Focus on simple actions, daily milestones, comfort tips, and mindset support. "
+        "Keep the response to a maximum of 5 short bullet points or lines.\n\n"
         f"Here is the patient context: {full_context}"
     )
 
