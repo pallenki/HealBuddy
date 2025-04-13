@@ -11,7 +11,7 @@ DEFAULT_CONTEXT = (
     "They are wearing a compression garment and experiencing mild soreness and occasional swelling."
 )
 
-def get_response(message: str, context: str = "") -> str:
+def get_gemini_response(message: str, context: str = "") -> str:
     full_context = context if context else DEFAULT_CONTEXT
 
     try:
