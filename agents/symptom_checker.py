@@ -17,12 +17,14 @@ def get_response(message: str, context: str = "") -> str:
     try:
         model = genai.GenerativeModel("gemini-pro")
         prompt = (
-            f"You are a safety-focused symptom checker for post-operative patients. "
-            f"Do not diagnose, but flag symptoms that may need follow-up. "
-            f"Speak clearly and calmly.\n\n"
+            f"You are a calm and safety-focused symptom checker for post-operative patients recovering from liposuction. "
+            f"Do not diagnose. Instead, provide up to 5 clear and supportive bullet points.\n\n"
             f"Patient context: {full_context}\n"
-            f"User message: {message}\n"
-            f"Provide a supportive and clear response."
+            f"User message: {message}\n\n"
+            f"Instructions:\n"
+            f"- Limit your response to a maximum of 5 bullet points or short lines.\n"
+            f"- Use plain language.\n"
+            f"- Always encourage the patient to contact their doctor for anything concerning."
         )
 
         response = model.generate_content(prompt)
